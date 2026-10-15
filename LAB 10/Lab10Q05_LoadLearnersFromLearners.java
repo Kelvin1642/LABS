@@ -1,16 +1,5 @@
-/**
- * Lab 10 Question 05 LoadLearnersFromLearners
- *
- * Exercise prompt:
- * Load learners from learners.csv, group them by grade band (A, B, C) with Collectors.groupingBy, and write one report file per band.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab10Q05_LoadLearnersFromLearners {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Decide the input and output file paths and the format of each record.
-        // TODO: Separate reading, processing and writing into understandable steps.
-        // TODO: Consider an empty file and an I/O error.
-    }
+    record Learner(String name,int marks) { static Learner parse(String line){String[] p=line.split(",");return new Learner(p[0].trim(),Integer.parseInt(p[1].trim()));} String band(){return marks>=80?"A":marks>=70?"B":"C";} }
+    public static void main(String[] args){java.nio.file.Path input=java.nio.file.Path.of("learners.csv");try{if(!java.nio.file.Files.exists(input)){java.nio.file.Files.write(input,java.util.List.of("Kelvin,86","Tariro,74","Farai,91","Rudo,62"));}java.util.Map<String,java.util.List<Learner>> byBand=java.nio.file.Files.lines(input).filter(s->!s.isBlank()).map(Learner::parse).collect(java.util.stream.Collectors.groupingBy(Learner::band));for(String band:java.util.List.of("A","B","C")){java.nio.file.Path out=java.nio.file.Path.of("grade-"+band+".txt");java.util.List<String> rows=byBand.getOrDefault(band,java.util.List.of()).stream().map(l->l.name()+", "+l.marks()).toList();java.nio.file.Files.write(out,rows);System.out.println(out+": "+rows.size()+" learners");}}catch(java.io.IOException e){System.err.println("Report generation failed: "+e.getMessage());}}
 }

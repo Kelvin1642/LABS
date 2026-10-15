@@ -1,16 +1,5 @@
-/**
- * Lab 3 Question 05 BuildATemperatureClass
- *
- * Exercise prompt:
- * Build a Temperature class that stores kelvin internally but offers getCelsius() and getFahrenheit(). Reject values below absolute zero, and show that changing the internal unit would not break callers.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab03Q05_BuildATemperatureClass {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Choose field names and units, then decide which values are valid.
-        // TODO: Put calculations in methods so callers do not repeat formulas.
-        // TODO: Check a normal value and a boundary or invalid value.
-    }
+    static class Temperature { private final double kelvin; Temperature(double kelvin){if(kelvin<0)throw new IllegalArgumentException("Kelvin cannot be below zero");this.kelvin=kelvin;} double getCelsius(){return kelvin-273.15;} double getFahrenheit(){return getCelsius()*9/5+32;} }
+    public static void main(String[] args){Temperature room=new Temperature(293.15);System.out.printf("%.1f C, %.1f F%n",room.getCelsius(),room.getFahrenheit());try{new Temperature(-1);}catch(IllegalArgumentException e){System.out.println(e.getMessage());}}
 }

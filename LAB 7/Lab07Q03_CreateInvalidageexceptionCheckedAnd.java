@@ -1,16 +1,6 @@
-/**
- * Lab 7 Question 03 CreateInvalidageexceptionCheckedAnd
- *
- * Exercise prompt:
- * Create InvalidAgeException (checked) and a validateAge(int) method that throws it for values outside 0 to 120.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab07Q03_CreateInvalidageexceptionCheckedAnd {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Identify the operation that can fail and the exact condition for failure.
-        // TODO: Choose a clear exception type and include useful context in its message.
-        // TODO: Show both a successful case and a failing case.
-    }
+    static class InvalidAgeException extends Exception { InvalidAgeException(String message){super(message);} }
+    static void validateAge(int age) throws InvalidAgeException {if(age<0||age>120)throw new InvalidAgeException("Age must be between 0 and 120; received "+age);}
+    public static void main(String[] args){for(int age:new int[]{20,145})try{validateAge(age);System.out.println(age+" accepted");}catch(InvalidAgeException e){System.out.println(e.getMessage());}}
 }

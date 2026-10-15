@@ -1,16 +1,13 @@
-/**
- * Lab 1 Question 03 WriteARectangleClass
- *
- * Exercise prompt:
- * Write a Rectangle class with width, height, and methods area() and perimeter(). Create an array of 5 rectangles and print the one with the largest area.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab01Q03_WriteARectangleClass {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Choose a small collection and state what each element represents.
-        // TODO: Implement the operation in a method; handle empty or duplicate cases where relevant.
-        // TODO: Try at least one ordinary case and one boundary case by hand.
+    static class Rectangle {
+        double width,height;
+        Rectangle(double width,double height){if(width<=0||height<=0)throw new IllegalArgumentException("Dimensions must be positive");this.width=width;this.height=height;}
+        double area(){return width*height;} double perimeter(){return 2*(width+height);}
+    }
+    public static void main(String[] args){
+        Rectangle[] rs={new Rectangle(2,5),new Rectangle(4,4),new Rectangle(3,8),new Rectangle(6,2),new Rectangle(5,5)};
+        Rectangle largest=rs[0]; for(Rectangle r:rs)if(r.area()>largest.area())largest=r;
+        System.out.printf("Largest area: %.1f (perimeter %.1f)%n",largest.area(),largest.perimeter());
     }
 }

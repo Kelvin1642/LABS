@@ -1,16 +1,8 @@
-/**
- * Lab 6 Question 01 CreateAnAbstractShape
- *
- * Exercise prompt:
- * Create an abstract Shape with abstract area() and perimeter(), and implement Circle, Rectangle and Square.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab06Q01_CreateAnAbstractShape {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Choose field names and units, then decide which values are valid.
-        // TODO: Put calculations in methods so callers do not repeat formulas.
-        // TODO: Check a normal value and a boundary or invalid value.
-    }
+    abstract static class Shape { abstract double area(); abstract double perimeter(); }
+    static class Circle extends Shape { final double r; Circle(double r){if(r<=0)throw new IllegalArgumentException();this.r=r;} double area(){return Math.PI*r*r;} double perimeter(){return 2*Math.PI*r;} }
+    static class Rectangle extends Shape { final double w,h; Rectangle(double w,double h){this.w=w;this.h=h;} double area(){return w*h;} double perimeter(){return 2*(w+h);} }
+    static class Square extends Rectangle { Square(double side){super(side,side);} }
+    public static void main(String[] args){Shape[] shapes={new Circle(2),new Rectangle(3,4),new Square(5)};for(Shape s:shapes)System.out.printf("%s area %.2f perimeter %.2f%n",s.getClass().getSimpleName(),s.area(),s.perimeter());}
 }

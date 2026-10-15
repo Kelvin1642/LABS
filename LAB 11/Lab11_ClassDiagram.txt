@@ -1,0 +1,8 @@
+Library Management System class diagram (text)
+
+Library 1 ---- * LibraryItem (abstract)
+LibraryItem <|-- Book implements Borrowable
+LibraryItem <|-- Dvd implements Borrowable
+Library 1 ---- * Member
+Member 1 ---- * Loan * ---- 1 LibraryItem
+Loan stores due date and return status. Library owns the item/member maps and coordinates lending.

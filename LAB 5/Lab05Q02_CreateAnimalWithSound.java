@@ -1,16 +1,5 @@
-/**
- * Lab 5 Question 02 CreateAnimalWithSound
- *
- * Exercise prompt:
- * Create Animal with sound() and subclasses Cat, Cow, Duck. Store them in an Animal[] and loop.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab05Q02_CreateAnimalWithSound {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Identify the shared behavior and what differs between the types.
-        // TODO: Put shared state or behavior at the appropriate level and use @Override where needed.
-        // TODO: Exercise the behavior through a superclass or interface reference where the prompt asks for it.
-    }
+    static class Animal { String sound(){return "?";} } static class Cat extends Animal {@Override String sound(){return "meow";}} static class Cow extends Animal {@Override String sound(){return "moo";}} static class Duck extends Animal {@Override String sound(){return "quack";}}
+    public static void main(String[] args){Animal[] animals={new Cat(),new Cow(),new Duck()};for(Animal a:animals)System.out.println(a.sound());}
 }

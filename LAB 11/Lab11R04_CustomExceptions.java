@@ -1,15 +1,7 @@
-/**
- * Lab 11 Requirement 04 CustomExceptions
- *
- * Exercise prompt:
- * Create custom exceptions: ItemNotAvailableException and MemberLimitExceededException (maximum 3 loans per member).
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab11R04_CustomExceptions {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Choose checked or unchecked exceptions and explain the choice
-        // TODO: Trigger each one with a small, explicit invalid case
-    }
+    static class ItemNotAvailableException extends Exception { ItemNotAvailableException(String id){super("Item "+id+" is already on loan");} }
+    static class MemberLimitExceededException extends Exception { MemberLimitExceededException(String member,int limit){super(member+" already has the maximum "+limit+" active loans");} }
+    static void checkBorrow(String itemId,boolean available,String member,int activeLoans) throws ItemNotAvailableException,MemberLimitExceededException {if(!available)throw new ItemNotAvailableException(itemId);if(activeLoans>=3)throw new MemberLimitExceededException(member,3);}
+    public static void main(String[] args){try{checkBorrow("B-3",true,"Kelvin",3);}catch(ItemNotAvailableException|MemberLimitExceededException e){System.out.println(e.getMessage());}}
 }

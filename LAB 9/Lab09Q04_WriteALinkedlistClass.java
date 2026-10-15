@@ -1,16 +1,9 @@
-/**
- * Lab 9 Question 04 WriteALinkedlistClass
- *
- * Exercise prompt:
- * Write a LinkedList class with a private static nested Node class, and an inner Iterator class so the list works in a for-each loop.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab09Q04_WriteALinkedlistClass {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Choose a small collection and state what each element represents.
-        // TODO: Implement the operation in a method; handle empty or duplicate cases where relevant.
-        // TODO: Try at least one ordinary case and one boundary case by hand.
+    static class ChessLinkedList<T> implements Iterable<T> {
+        private static class Node<E>{E value;Node<E> next;Node(E v){value=v;}}
+        private Node<T> head,tail; void add(T value){Node<T> n=new Node<>(value);if(tail==null)head=n;else tail.next=n;tail=n;}
+        public java.util.Iterator<T> iterator(){return new java.util.Iterator<>(){private Node<T> current=head;public boolean hasNext(){return current!=null;}public T next(){if(current==null)throw new java.util.NoSuchElementException();T v=current.value;current=current.next;return v;}};}
     }
+    public static void main(String[] args){ChessLinkedList<String> moves=new ChessLinkedList<>();moves.add("e4");moves.add("Nf3");moves.add("Bc4");for(String move:moves)System.out.println(move);}
 }

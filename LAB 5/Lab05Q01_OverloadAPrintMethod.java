@@ -1,16 +1,5 @@
-/**
- * Lab 5 Question 01 OverloadAPrintMethod
- *
- * Exercise prompt:
- * Overload a print method to accept int, double, String and int[], and test each call.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab05Q01_OverloadAPrintMethod {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Identify the shared behavior and what differs between the types.
-        // TODO: Put shared state or behavior at the appropriate level and use @Override where needed.
-        // TODO: Exercise the behavior through a superclass or interface reference where the prompt asks for it.
-    }
+    static void print(int x){System.out.println("int: "+x);} static void print(double x){System.out.println("double: "+x);} static void print(String x){System.out.println("String: "+x);} static void print(int[] xs){System.out.println(java.util.Arrays.toString(xs));}
+    public static void main(String[] args){print(7);print(3.14);print("checkmate");print(new int[]{1,2,3});}
 }

@@ -1,16 +1,6 @@
-/**
- * Lab 4 Question 01 CreatePersonNameAge
- *
- * Exercise prompt:
- * Create Person (name, age) and Student extends Person (adds course). Print both using an inherited display().
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab04Q01_CreatePersonNameAge {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Identify the shared behavior and what differs between the types.
-        // TODO: Put shared state or behavior at the appropriate level and use @Override where needed.
-        // TODO: Exercise the behavior through a superclass or interface reference where the prompt asks for it.
-    }
+    static class Person { private final String name; private final int age; Person(String n,int a){name=n;age=a;} void display(){System.out.println(name+", age "+age);} }
+    static class Student extends Person { private final String course; Student(String n,int a,String c){super(n,a);course=c;} void display(){super.display();System.out.println("Course: "+course);} }
+    public static void main(String[] args){new Student("Kelvin",20,"Computer Science").display();}
 }

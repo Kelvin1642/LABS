@@ -1,16 +1,7 @@
-/**
- * Lab 4 Question 03 BuildVehicleCarAnd
- *
- * Exercise prompt:
- * Build Vehicle, Car and ElectricCar (multilevel). Trace and print the order of constructor calls.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab04Q03_BuildVehicleCarAnd {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Write your prediction or design explanation before coding.
-        // TODO: Use the smallest example that demonstrates the rule.
-        // TODO: Record what the compiler or program shows, then explain why it happens.
-    }
+    static class Vehicle { Vehicle(){System.out.println("Vehicle constructor");} }
+    static class Car extends Vehicle { Car(){System.out.println("Car constructor");} }
+    static class ElectricCar extends Car { ElectricCar(){System.out.println("ElectricCar constructor");} }
+    public static void main(String[] args){new ElectricCar();}
 }

@@ -1,16 +1,5 @@
-/**
- * Lab 7 Question 05 PredictTheOutputOf
- *
- * Exercise prompt:
- * Predict the output of a method with return inside try and a statement that prints inside finally. Verify and explain why finally still executes.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab07Q05_PredictTheOutputOf {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Write your prediction or design explanation before coding.
-        // TODO: Use the smallest example that demonstrates the rule.
-        // TODO: Record what the compiler or program shows, then explain why it happens.
-    }
+    static String returnFromTry(){try{return "return value chosen in try";}finally{System.out.println("finally executes before the return completes");}}
+    public static void main(String[] args){System.out.println(returnFromTry());}
 }

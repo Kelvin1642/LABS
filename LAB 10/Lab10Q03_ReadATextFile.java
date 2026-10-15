@@ -1,16 +1,4 @@
-/**
- * Lab 10 Question 03 ReadATextFile
- *
- * Exercise prompt:
- * Read a text file and print the number of lines, words and characters.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab10Q03_ReadATextFile {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Decide the input and output file paths and the format of each record.
-        // TODO: Separate reading, processing and writing into understandable steps.
-        // TODO: Consider an empty file and an I/O error.
-    }
+    public static void main(String[] args){java.nio.file.Path path=java.nio.file.Path.of(args.length>0?args[0]:"sample.txt");try{String text=java.nio.file.Files.readString(path);long lines=text.isEmpty()?0:text.lines().count();long words=java.util.Arrays.stream(text.trim().split("\\s+")).filter(w->!w.isEmpty()).count();System.out.printf("Lines: %d%nWords: %d%nCharacters: %d%n",lines,words,text.length());}catch(java.io.IOException e){System.err.println("Cannot read "+path+": "+e.getMessage());}}
 }

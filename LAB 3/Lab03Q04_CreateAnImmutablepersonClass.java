@@ -1,16 +1,5 @@
-/**
- * Lab 3 Question 04 CreateAnImmutablepersonClass
- *
- * Exercise prompt:
- * Create an ImmutablePerson class (final class, final fields, no setters). Explain each design choice.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab03Q04_CreateAnImmutablepersonClass {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Write your prediction or design explanation before coding.
-        // TODO: Use the smallest example that demonstrates the rule.
-        // TODO: Record what the compiler or program shows, then explain why it happens.
-    }
+    static final class ImmutablePerson { private final String name; private final int age; ImmutablePerson(String name,int age){if(name==null||name.isBlank())throw new IllegalArgumentException("Name required");if(age<0)throw new IllegalArgumentException("Age cannot be negative");this.name=name.trim();this.age=age;} String getName(){return name;} int getAge(){return age;} public String toString(){return name+", age "+age;} }
+    public static void main(String[] args){ImmutablePerson p=new ImmutablePerson("Kelvin",20);System.out.println(p);/* final class prevents subclass mutation; final fields and no setters keep state fixed. */}
 }

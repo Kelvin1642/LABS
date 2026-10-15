@@ -1,16 +1,6 @@
-/**
- * Lab 9 Question 05 CreateAnEnumCoin
- *
- * Exercise prompt:
- * Create an enum Coin with values PENNY(1), NICKEL(5), DIME(10), QUARTER(25) and a method that returns the fewest coins for a given amount.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab09Q05_CreateAnEnumCoin {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Define the type or contract first, including its valid state and public operations.
-        // TODO: Keep the implementation focused on that contract.
-        // TODO: Demonstrate the required behavior with a short example in main.
-    }
+    enum Coin { PENNY(1),NICKEL(5),DIME(10),QUARTER(25); final int cents; Coin(int c){cents=c;} }
+    static java.util.Map<Coin,Integer> fewestCoins(int amount){if(amount<0)throw new IllegalArgumentException("Amount cannot be negative");java.util.Map<Coin,Integer> result=new java.util.LinkedHashMap<>();for(Coin c:new Coin[]{Coin.QUARTER,Coin.DIME,Coin.NICKEL,Coin.PENNY}){int n=amount/c.cents;if(n>0){result.put(c,n);amount%=c.cents;}}return result;}
+    public static void main(String[] args){int cents=87;System.out.println(cents+" cents: "+fewestCoins(cents));}
 }

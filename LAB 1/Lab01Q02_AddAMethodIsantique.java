@@ -1,16 +1,10 @@
-/**
- * Lab 1 Question 02 AddAMethodIsantique
- *
- * Exercise prompt:
- * Add a method isAntique() to Car that returns true when the car is more than 25 years old.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab01Q02_AddAMethodIsantique {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: List the required fields, methods and output before you start coding.
-        // TODO: Implement one small part at a time and keep each class responsible for one idea.
-        // TODO: Use a short main method to demonstrate the behavior requested in the prompt.
+    static class Car {
+        String brand; int year; double mileage;
+        Car(String brand,int year,double mileage){this.brand=brand;this.year=year;this.mileage=mileage;}
+        boolean isAntique(){return java.time.Year.now().getValue()-year>25;}
+        void display(){System.out.printf("%s %d, %.0f km, antique=%s%n",brand,year,mileage,isAntique());}
     }
+    public static void main(String[] args){new Car("BMW M4",2022,18000).display();new Car("Classic coupe",1998,120000).display();}
 }

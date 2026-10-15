@@ -1,16 +1,4 @@
-/**
- * Lab 10 Question 01 WriteAProgramThat
- *
- * Exercise prompt:
- * Write a program that saves five lines typed by the user to a file and then reads them back.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab10Q01_WriteAProgramThat {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Decide the input and output file paths and the format of each record.
-        // TODO: Separate reading, processing and writing into understandable steps.
-        // TODO: Consider an empty file and an I/O error.
-    }
+    public static void main(String[] args){java.nio.file.Path path=java.nio.file.Path.of("five-lines.txt");try(java.util.Scanner in=new java.util.Scanner(System.in)){java.util.List<String> lines=new java.util.ArrayList<>();for(int i=1;i<=5;i++){System.out.print("Line "+i+": ");lines.add(in.nextLine());}java.nio.file.Files.write(path,lines);System.out.println("Saved and read back:");for(String line:java.nio.file.Files.readAllLines(path))System.out.println(line);}catch(java.io.IOException e){System.err.println("File operation failed: "+e.getMessage());}}
 }

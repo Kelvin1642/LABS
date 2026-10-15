@@ -1,16 +1,5 @@
-/**
- * Lab 2 Question 01 CreateACircleClass
- *
- * Exercise prompt:
- * Create a Circle class with a constructor taking radius, and a no-argument constructor defaulting the radius to 1.0.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab02Q01_CreateACircleClass {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Choose field names and units, then decide which values are valid.
-        // TODO: Put calculations in methods so callers do not repeat formulas.
-        // TODO: Check a normal value and a boundary or invalid value.
-    }
+    static class Circle { private final double radius; Circle(){this(1.0);} Circle(double radius){if(radius<=0)throw new IllegalArgumentException("Radius must be positive");this.radius=radius;} double area(){return Math.PI*radius*radius;} }
+    public static void main(String[] args){System.out.printf("Default area %.2f%n",new Circle().area());System.out.printf("Radius 3 area %.2f%n",new Circle(3).area());}
 }

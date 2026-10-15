@@ -1,16 +1,5 @@
-/**
- * Lab 7 Question 02 WriteAMethodThat
- *
- * Exercise prompt:
- * Write a method that accesses an array element and catches ArrayIndexOutOfBoundsException.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab07Q02_WriteAMethodThat {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Choose a small collection and state what each element represents.
-        // TODO: Implement the operation in a method; handle empty or duplicate cases where relevant.
-        // TODO: Try at least one ordinary case and one boundary case by hand.
-    }
+    static int getElement(int[] values,int index){try{return values[index];}catch(ArrayIndexOutOfBoundsException e){System.out.println("Index "+index+" is outside array length "+values.length);return -1;}}
+    public static void main(String[] args){int[] scores={86,74,92};System.out.println(getElement(scores,1));System.out.println(getElement(scores,7));}
 }

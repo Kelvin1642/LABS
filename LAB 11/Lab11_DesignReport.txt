@@ -1,0 +1,5 @@
+Library Management System — short design report
+
+The program models books, DVDs, members and loans. LibraryItem captures shared item identity and title, while Book and Dvd provide different loan periods. Borrowable gives both item types the same borrow/return operations. Library coordinates id-keyed maps, enforces availability and the three-active-loan limit, searches titles with streams, and writes CSV data on exit for reload on the next run.
+
+The design keeps lending rules in Library rather than in the menu loop. The menu handles user input and reports errors. A small limitation is that the CSV format assumes the application owns its data files; it is a teaching example rather than a concurrent or multi-user database.

@@ -1,15 +1,6 @@
-/**
- * Lab 11 Requirement 03 BorrowableContract
- *
- * Exercise prompt:
- * Define a Borrowable interface with borrow(Member) and giveBack().
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab11R03_BorrowableContract {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Write down what state changes when an item is borrowed or returned
-        // TODO: Keep the interface small and implement it in the appropriate item class
-    }
+    interface Borrowable { void borrow(String memberName); void giveBack(); }
+    static class Copy implements Borrowable { private final String title; private boolean available=true; Copy(String title){this.title=title;} public void borrow(String member){if(!available)throw new IllegalStateException("Item is already borrowed");available=false;System.out.println(member+" borrowed "+title);} public void giveBack(){if(available)throw new IllegalStateException("Item was not borrowed");available=true;System.out.println(title+" returned");} }
+    public static void main(String[] args){Copy c=new Copy("Java OOP");c.borrow("Kelvin");c.giveBack();}
 }

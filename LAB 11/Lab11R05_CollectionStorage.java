@@ -1,15 +1,7 @@
-/**
- * Lab 11 Requirement 05 CollectionStorage
- *
- * Exercise prompt:
- * Store items and members in Map<String, ...> collections keyed by id.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab11R05_CollectionStorage {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Choose the map value types and make the key lookup path clear
-        // TODO: Consider what to do when an id is already present
-    }
+    static class Member { final String id,name; Member(String i,String n){id=i;name=n;} }
+    static class Item { final String id,title; Item(String i,String t){id=i;title=t;} }
+    static class Library { final java.util.Map<String,Item> items=new java.util.HashMap<>(); final java.util.Map<String,Member> members=new java.util.HashMap<>(); void add(Item item){if(items.putIfAbsent(item.id,item)!=null)throw new IllegalArgumentException("Duplicate item id: "+item.id);} void register(Member member){if(members.putIfAbsent(member.id,member)!=null)throw new IllegalArgumentException("Duplicate member id: "+member.id);} }
+    public static void main(String[] args){Library l=new Library();l.add(new Item("B-01","Java OOP"));l.register(new Member("M-01","Kelvin"));System.out.println("Items="+l.items.keySet()+", members="+l.members.keySet());}
 }

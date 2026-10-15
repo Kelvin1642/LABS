@@ -1,16 +1,5 @@
-/**
- * Lab 4 Question 05 RefactorAStackExtends
- *
- * Exercise prompt:
- * Refactor a Stack extends ArrayList design into a Stack that contains an ArrayList. Explain what the inheritance version wrongly exposes.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab04Q05_RefactorAStackExtends {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Write your prediction or design explanation before coding.
-        // TODO: Use the smallest example that demonstrates the rule.
-        // TODO: Record what the compiler or program shows, then explain why it happens.
-    }
+    static class Stack<T> { private final java.util.ArrayList<T> items=new java.util.ArrayList<>(); void push(T item){items.add(item);} T pop(){if(items.isEmpty())throw new java.util.NoSuchElementException("Stack is empty");return items.remove(items.size()-1);} int size(){return items.size();} }
+    public static void main(String[] args){Stack<String> s=new Stack<>();s.push("e4");s.push("Nf3");System.out.println(s.pop()+"; remaining "+s.size());/* Composition exposes only stack operations; extending ArrayList would expose queue/index/remove operations too. */}
 }

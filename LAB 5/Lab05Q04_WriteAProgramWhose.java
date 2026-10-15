@@ -1,16 +1,6 @@
-/**
- * Lab 5 Question 04 WriteAProgramWhose
- *
- * Exercise prompt:
- * Write a program whose output differs depending on whether a method or a field is accessed through a superclass reference, and explain why.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab05Q04_WriteAProgramWhose {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Write your prediction or design explanation before coding.
-        // TODO: Use the smallest example that demonstrates the rule.
-        // TODO: Record what the compiler or program shows, then explain why it happens.
-    }
+    static class Parent { String label="parent field"; String describe(){return "parent method";} }
+    static class Child extends Parent { String label="child field"; @Override String describe(){return "child method";} }
+    public static void main(String[] args){Parent ref=new Child();System.out.println(ref.label);System.out.println(ref.describe());/* Fields resolve from the reference type; overridden methods dispatch to the object type. */}
 }

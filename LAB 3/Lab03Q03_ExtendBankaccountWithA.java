@@ -1,16 +1,5 @@
-/**
- * Lab 3 Question 03 ExtendBankaccountWithA
- *
- * Exercise prompt:
- * Extend BankAccount with a transaction history (a list of strings). Provide a getter that returns an unmodifiable copy.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab03Q03_ExtendBankaccountWithA {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Choose a small collection and state what each element represents.
-        // TODO: Implement the operation in a method; handle empty or duplicate cases where relevant.
-        // TODO: Try at least one ordinary case and one boundary case by hand.
-    }
+    static class BankAccount { private double balance; private final java.util.List<String> history=new java.util.ArrayList<>(); BankAccount(double opening){if(opening<0)throw new IllegalArgumentException("Negative opening balance");balance=opening;history.add("Opened: "+opening);} void deposit(double amount){if(amount<=0)throw new IllegalArgumentException("Deposit must be positive");balance+=amount;history.add("Deposit: "+amount);} boolean withdraw(double amount){if(amount<=0)throw new IllegalArgumentException("Withdrawal must be positive");if(amount>balance)return false;balance-=amount;history.add("Withdrawal: "+amount);return true;} java.util.List<String> getHistory(){return java.util.Collections.unmodifiableList(new java.util.ArrayList<>(history));} double getBalance(){return balance;} }
+    public static void main(String[] args){BankAccount a=new BankAccount(500);a.deposit(100);a.withdraw(80);System.out.println(a.getHistory());}
 }

@@ -1,16 +1,5 @@
-/**
- * Lab 2 Question 02 AddAStaticCounter
- *
- * Exercise prompt:
- * Add a static counter to Circle that tracks how many circles exist, with a static getter.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab02Q02_AddAStaticCounter {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: Choose field names and units, then decide which values are valid.
-        // TODO: Put calculations in methods so callers do not repeat formulas.
-        // TODO: Check a normal value and a boundary or invalid value.
-    }
+    static class Circle { private static int count; private final double radius; Circle(){this(1.0);} Circle(double r){if(r<=0)throw new IllegalArgumentException("Radius must be positive");radius=r;count++;} static int getCount(){return count;} }
+    public static void main(String[] args){new Circle();new Circle(2);new Circle(4);System.out.println("Circles created: "+Circle.getCount());}
 }

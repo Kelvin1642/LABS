@@ -1,16 +1,5 @@
-/**
- * Lab 3 Question 02 AddGetgradeThatReturns
- *
- * Exercise prompt:
- * Add getGrade() that returns A, B, C or F from the marks, without storing the grade in a field.
- *
- * Learning starter: complete the TODOs and be ready to explain your choices.
- */
+// Reference solution; understand and adapt it before using.
 public class Lab03Q02_AddGetgradeThatReturns {
-    public static void main(String[] args) {
-        // Work through these steps:
-        // TODO: List the required fields, methods and output before you start coding.
-        // TODO: Implement one small part at a time and keep each class responsible for one idea.
-        // TODO: Use a short main method to demonstrate the behavior requested in the prompt.
-    }
+    static class Student { private final String name; private int marks; Student(String n,int m){name=n;setMarks(m);} void setMarks(int m){if(m<0||m>100)throw new IllegalArgumentException("Marks must be 0..100");marks=m;} String getGrade(){if(marks>=80)return "A";if(marks>=70)return "B";if(marks>=60)return "C";return "F";} }
+    public static void main(String[] args){for(int m:new int[]{91,75,63,48}){Student s=new Student("Learner",m);System.out.println(m+" -> "+s.getGrade());}}
 }
